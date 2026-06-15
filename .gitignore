@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.env/
+.venv/
+
+# Flask
+instance/
+.webassets-cache
+
+# Environment Variables
+.env
+
+# IDE Files
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python Cache
+.pytest_cache/
+.mypy_cache/
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Docker
+*.tar
+
+# Kubernetes Temporary Files
+*.tmp
+
+# Minikube
+.minikube/
+
+# GitHub Actions Runner
+actions-runner/
+
+# ArgoCD
+argocd-password.txt
+
+# Node Modules (if frontend added later)
+node_modules/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Backup Files
+*.bak
+*.swp
+
+# Secrets
+secrets.yaml
+*.key
+*.pem
+*.crt

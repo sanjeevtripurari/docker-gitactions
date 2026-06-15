@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DevOps GitOps Pipeline</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="logo">
+        🚀 DevOps Pipeline
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#flask">Flask</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#github">GitHub Actions</a></li>
+        <li><a href="#kubernetes">Kubernetes</a></li>
+        <li><a href="#argocd">ArgoCD</a></li>
+    </ul>
+
+</nav>
+
+<section id="home" class="hero fade-in">
+
+    <div class="hero-content">
+
+        <h1>
+            Docker + GitHub Actions + Kubernetes + ArgoCD
+        </h1>
+
+        <p>
+            Complete Local CI/CD and GitOps Pipeline using Flask.
+        </p>
+
+        <a href="#flask" class="btn">
+            Explore Stack
+        </a>
+
+    </div>
+
+</section>
+
+<section id="flask" class="card fade-in">
+
+<h2>🐍 Flask Application</h2>
+
+<p>
+    Flask is a lightweight and highly flexible Python-based web framework
+    that is widely used for developing modern web applications, REST APIs,
+    automation dashboards and microservices. In this project, Flask serves
+    as the core backend application framework responsible for handling web
+    requests, rendering HTML pages and integrating the frontend interface
+    with the deployment pipeline demonstration.
+</p>
+
+<p>
+    One of the primary reasons Flask was selected for this capstone project
+    is because of its simplicity, modular architecture and lightweight
+    design. Unlike larger enterprise frameworks, Flask allows developers to
+    rapidly build applications while maintaining complete control over the
+    application structure and components. This makes Flask an excellent
+    choice for DevOps demonstrations, CI/CD workflows and Kubernetes-based
+    deployments where simplicity and portability are extremely important.
+</p>
+
+<p>
+    In this project, Flask is responsible for serving the complete frontend
+    dashboard that visually explains the implementation of Docker,
+    Kubernetes, GitHub Actions and ArgoCD. The application renders dynamic
+    HTML templates using the Jinja2 templating engine and also serves static
+    CSS assets for styling, animations and responsive layouts. Flask
+    integrates seamlessly with frontend technologies and provides a clean
+    architecture for handling routes and user requests.
+</p>
+
+<p>
+    The Flask application is designed following a lightweight microservice
+    style architecture. Instead of embedding unnecessary complexity, the
+    application focuses on delivering a clean and modular backend service
+    that can easily be containerized and orchestrated. This design pattern
+    is commonly used in modern cloud-native environments where applications
+    are deployed as independent services inside containers and managed
+    through orchestration platforms like Kubernetes.
+</p>
+
+<p>
+    Another important reason Flask was selected is its excellent
+    compatibility with containerized deployments. Flask applications are
+    extremely lightweight and require minimal system resources, making them
+    highly efficient for Docker-based packaging and Kubernetes deployments.
+    The application can start quickly, scale efficiently and consume fewer
+    resources compared to traditional monolithic frameworks.
+</p>
+
+<p>
+    Flask also provides significant flexibility for future enhancements.
+    Additional features such as REST APIs, authentication systems, database
+    integration, monitoring endpoints and production-grade middleware can
+    easily be added without restructuring the existing application. This
+    makes the current implementation highly extensible and production-ready
+    for future upgrades.
+</p>
+
+<p>
+    In the context of this project, Flask acts as the business application
+    layer that moves through the entire DevOps lifecycle. The source code is
+    maintained in GitHub, containerized using Docker, automatically rebuilt
+    using GitHub Actions, deployed into Kubernetes and synchronized through
+    ArgoCD using GitOps principles. Flask therefore becomes the centerpiece
+    application around which the complete CI/CD and GitOps ecosystem is
+    demonstrated.
+</p>
+
+<p>
+    Flask also supports production-grade deployment using Gunicorn, which is
+    included in this project. Gunicorn acts as a WSGI application server
+    capable of handling concurrent requests efficiently inside containerized
+    environments. This setup closely resembles enterprise-grade production
+    deployments where Flask applications are commonly deployed behind NGINX
+    or ingress controllers inside Kubernetes clusters.
+</p>
+
+<p>
+    Overall, Flask plays a critical role in this capstone project by serving
+    as the lightweight, scalable and container-friendly application
+    framework that enables the demonstration of complete DevOps automation,
+    CI/CD pipelines, Kubernetes orchestration and GitOps deployment
+    strategies in a fully local development environment.
+</p>
+
+
+
+</section>
+
+
+<section id="docker" class="card fade-in">
+
+
+<h2>🐳 Docker</h2>
+
+<p>
+    Docker is a containerization platform that enables applications to be
+    packaged along with all their dependencies, libraries, runtime
+    environments and configurations into lightweight portable containers.
+    In this capstone project, Docker is used to containerize the Flask
+    application so that it can run consistently across development,
+    testing and Kubernetes deployment environments.
+</p>
+
+<p>
+    Before containerization technologies like Docker became popular,
+    developers frequently faced issues where applications worked correctly
+    on one machine but failed on another due to dependency mismatches,
+    missing libraries or inconsistent runtime environments. Docker solves
+    this problem by packaging the complete application stack into a single
+    isolated container image that behaves identically across all systems.
+</p>
+
+<p>
+    In this project, Docker is responsible for building the runtime
+    environment for the Flask application. The Docker image includes the
+    Python runtime, Flask framework, Gunicorn server, application source
+    code and all required dependencies. Once the image is built, it becomes
+    a portable artifact that can be deployed directly into Kubernetes.
+</p>
+
+<p>
+    The Dockerfile used in this project defines the complete container
+    creation process. It starts from a lightweight Python base image,
+    installs required dependencies from the requirements.txt file, copies
+    application source code into the container and finally launches the
+    application using Gunicorn. This approach follows industry best
+    practices for building optimized and production-ready container images.
+</p>
+
+<p>
+    One of the major advantages of Docker is portability. The same image
+    built locally can run identically on laptops, testing environments,
+    Kubernetes clusters or cloud infrastructure. This portability is one
+    of the primary reasons Docker has become the standard for modern
+    cloud-native application deployments and DevOps workflows.
+</p>
+
+<p>
+    Docker also provides process isolation and lightweight virtualization.
+    Unlike traditional virtual machines, Docker containers share the host
+    operating system kernel while maintaining isolated application
+    environments. This significantly reduces startup time, memory usage and
+    storage consumption compared to full virtual machines.
+</p>
+
+<p>
+    In the context of Kubernetes, Docker plays an extremely important role
+    because Kubernetes fundamentally operates by orchestrating containerized
+    applications. Kubernetes deployments, scaling operations, rolling
+    updates and self-healing mechanisms all depend on container images that
+    are created and packaged using Docker.
+</p>
+
+<p>
+    This project demonstrates a local Docker-based CI/CD workflow where
+    Docker images are built automatically using GitHub Actions and loaded
+    directly into Minikube for Kubernetes deployment. Instead of pushing
+    images to external registries like DockerHub, the workflow uses local
+    image loading to simulate enterprise deployment pipelines in an offline
+    development environment.
+</p>
+
+<p>
+    Docker also enables rapid application deployment and rollback. Since the
+    application and its dependencies are packaged into immutable images,
+    deployments become highly predictable and repeatable. This aligns
+    perfectly with DevOps automation principles and modern infrastructure
+    management practices.
+</p>
+
+<p>
+    Overall, Docker serves as the foundation of application packaging and
+    deployment within this project. It provides consistency, portability,
+    scalability and seamless integration with Kubernetes and GitHub Actions,
+    making it one of the most essential technologies in the complete
+    CI/CD and GitOps pipeline architecture demonstrated by this capstone
+    project.
+</p>
+
+</section>
+
+<section id="github" class="card fade-in">
+
+
+<h2>⚡ GitHub Actions</h2>
+
+<p>
+    GitHub Actions is a modern Continuous Integration and Continuous
+    Deployment (CI/CD) automation platform integrated directly into GitHub.
+    It enables developers and DevOps engineers to automate software
+    development workflows such as application building, testing,
+    containerization, deployment and infrastructure management. In this
+    capstone project, GitHub Actions is used to automate the complete local
+    deployment pipeline whenever changes are pushed to the GitHub
+    repository.
+</p>
+
+<p>
+    Traditionally, software deployment processes were handled manually by
+    developers or operations teams. Manual deployments often introduced
+    human errors, inconsistent environments and deployment delays. CI/CD
+    pipelines were introduced to automate repetitive deployment activities
+    and ensure consistent software delivery across environments. GitHub
+    Actions simplifies this process by providing workflow automation
+    directly inside GitHub repositories.
+</p>
+
+<p>
+    In this project, GitHub Actions acts as the automation engine that
+    continuously monitors the GitHub repository for code changes. Whenever
+    a developer pushes new code into the repository, the configured GitHub
+    Actions workflow automatically triggers. The workflow executes a series
+    of predefined deployment steps using a self-hosted runner configured on
+    the local development machine.
+</p>
+
+<p>
+    One of the key components used in this project is the GitHub
+    self-hosted runner. Unlike GitHub-hosted cloud runners, self-hosted
+    runners execute workflows directly on local infrastructure. This allows
+    the workflow to interact with locally installed Docker engines,
+    Kubernetes clusters and Minikube environments. The self-hosted runner
+    therefore becomes a bridge between GitHub and the local DevOps
+    infrastructure used in this capstone implementation.
+</p>
+
+<p>
+    The workflow automation implemented in this project performs multiple
+    important operations. First, it checks out the latest source code from
+    the GitHub repository. Next, it builds the Docker image containing the
+    Flask application. Once the image is created, the workflow loads the
+    image directly into the Minikube Kubernetes environment using Minikube
+    image loading commands. Finally, the workflow triggers a Kubernetes
+    rollout restart to ensure that new application pods are recreated using
+    the updated container image.
+</p>
+
+<p>
+    This automated workflow demonstrates the practical implementation of
+    Continuous Deployment principles where application delivery becomes
+    automated, repeatable and reliable. Developers only need to push code
+    changes into GitHub, and the entire deployment lifecycle executes
+    automatically without requiring manual intervention.
+</p>
+
+<p>
+    GitHub Actions also provides excellent visibility into deployment
+    processes. Workflow execution logs, build statuses, deployment history
+    and automation events are visible directly inside the GitHub Actions
+    dashboard. This improves operational monitoring and allows developers to
+    troubleshoot deployment failures efficiently.
+</p>
+
+<p>
+    Another important benefit of GitHub Actions is workflow portability and
+    scalability. Workflows are defined declaratively using YAML files, which
+    allows deployment pipelines to be version-controlled and maintained
+    alongside application source code. This Infrastructure-as-Code approach
+    improves reproducibility, collaboration and automation consistency.
+</p>
+
+<p>
+    In enterprise environments, GitHub Actions is frequently integrated with
+    advanced DevOps ecosystems involving container registries, Kubernetes
+    clusters, cloud providers, infrastructure provisioning tools and
+    monitoring systems. This project demonstrates the foundational concepts
+    of such enterprise-grade CI/CD systems in a simplified local
+    environment.
+</p>
+
+<p>
+    Overall, GitHub Actions plays a critical role in this capstone project
+    by automating the complete deployment lifecycle. It eliminates manual
+    deployment effort, accelerates software delivery, integrates seamlessly
+    with Docker and Kubernetes and demonstrates how modern CI/CD pipelines
+    support DevOps automation and continuous software delivery practices.
+</p>
+
+
+</section>
+
+<section id="kubernetes" class="card fade-in">
+
+
+<h2>☸️ Kubernetes</h2>
+
+<p>
+    Kubernetes is a powerful open-source container orchestration platform
+    designed to automate the deployment, scaling, management and monitoring
+    of containerized applications. It has become the industry standard for
+    managing cloud-native applications and modern microservices
+    architectures. In this capstone project, Kubernetes is used to deploy,
+    manage and orchestrate the Flask application container inside a local
+    Minikube cluster environment.
+</p>
+
+<p>
+    Before orchestration platforms like Kubernetes became popular,
+    organizations often faced significant challenges while managing large
+    numbers of application containers. Manual container deployment,
+    networking, scaling and recovery processes became increasingly difficult
+    as applications grew in complexity. Kubernetes solves these challenges
+    by providing a declarative and automated platform for container
+    management.
+</p>
+
+<p>
+    In this project, Kubernetes serves as the core orchestration layer
+    responsible for running the Dockerized Flask application reliably inside
+    the cluster. The application deployment is defined declaratively using
+    Kubernetes YAML manifests. These manifests describe the desired state of
+    the application infrastructure, including deployments, services,
+    namespaces and container specifications.
+</p>
+
+<p>
+    One of the primary Kubernetes resources used in this project is the
+    Deployment object. The Deployment resource manages application pods and
+    ensures that the desired number of container replicas are always
+    running. If a pod crashes or becomes unavailable, Kubernetes
+    automatically recreates it, demonstrating Kubernetes self-healing
+    capabilities.
+</p>
+
+<p>
+    Kubernetes also supports rolling updates, which allow application
+    updates to be deployed gradually without causing complete service
+    downtime. In this project, when GitHub Actions triggers a rollout
+    restart, Kubernetes automatically recreates the application pods using
+    the updated container image while maintaining service availability.
+</p>
+
+<p>
+    Another important Kubernetes resource used in this implementation is the
+    Service object. Kubernetes Services expose application pods internally
+    or externally within the cluster network. This project uses a NodePort
+    service to expose the Flask application outside the cluster, allowing
+    users to access the application through the Minikube IP and allocated
+    NodePort.
+</p>
+
+<p>
+    Namespaces are also used to logically isolate project resources inside
+    the Kubernetes cluster. By creating a dedicated namespace for the Flask
+    application, the project maintains clean resource organization and
+    demonstrates best practices for multi-application Kubernetes
+    environments.
+</p>
+
+<p>
+    Kubernetes integrates seamlessly with Docker because Kubernetes pods run
+    container images built using Docker. This integration forms the
+    foundation of modern cloud-native application deployments where Docker
+    handles application packaging and Kubernetes handles orchestration and
+    lifecycle management.
+</p>
+
+<p>
+    The project uses Minikube as the local Kubernetes environment. Minikube
+    provides a lightweight single-node Kubernetes cluster suitable for local
+    development, testing and DevOps learning. Despite being a local cluster,
+    Minikube replicates real Kubernetes concepts and workflows used in
+    enterprise production environments.
+</p>
+
+<p>
+    Kubernetes also provides scalability and extensibility. Additional
+    features such as autoscaling, ingress controllers, monitoring systems,
+    persistent storage, service meshes and advanced networking can easily be
+    integrated into the existing architecture. This makes Kubernetes one of
+    the most important technologies in modern DevOps ecosystems.
+</p>
+
+<p>
+    Overall, Kubernetes acts as the central orchestration platform within
+    this capstone project. It automates application management, enables
+    reliable deployments, integrates with CI/CD pipelines and demonstrates
+    modern infrastructure automation practices that are widely used in
+    enterprise cloud-native environments.
+</p>
+
+
+</section>
+
+<section id="argocd" class="card fade-in">
+
+
+<h2>🚀 ArgoCD</h2>
+
+<p>
+    ArgoCD is a declarative GitOps continuous delivery tool designed
+    specifically for Kubernetes environments. It enables automated
+    application deployment and synchronization by continuously monitoring
+    Git repositories and ensuring that the Kubernetes cluster state matches
+    the desired configuration stored in version control. In this capstone
+    project, ArgoCD is used to implement GitOps-based deployment management
+    and automated synchronization for the Flask application running inside
+    Kubernetes.
+</p>
+
+<p>
+    GitOps is a modern operational methodology that uses Git repositories as
+    the single source of truth for infrastructure and application
+    configuration. Instead of manually applying infrastructure changes,
+    developers define the desired cluster state declaratively in Git, and
+    automation tools like ArgoCD continuously synchronize the Kubernetes
+    environment with those configurations.
+</p>
+
+<p>
+    In this project, ArgoCD continuously watches the GitHub repository
+    containing Kubernetes deployment manifests. These manifests define the
+    desired deployment configuration for the Flask application, including
+    Deployments, Services and Namespaces. Whenever changes are detected in
+    the repository, ArgoCD automatically synchronizes those changes into the
+    Kubernetes cluster.
+</p>
+
+<p>
+    One of the primary advantages of ArgoCD is visibility and operational
+    transparency. ArgoCD provides a powerful web-based dashboard where users
+    can monitor deployment status, synchronization state, application
+    health, resource configuration and deployment history in real time. This
+    significantly improves deployment management and troubleshooting
+    capabilities.
+</p>
+
+<p>
+    ArgoCD also ensures configuration consistency. In traditional deployment
+    environments, manual infrastructure changes often create configuration
+    drift where the actual cluster state differs from the intended state.
+    ArgoCD continuously compares the cluster state against the Git
+    repository and automatically corrects drift by reapplying the desired
+    configuration.
+</p>
+
+<p>
+    In this capstone project, ArgoCD demonstrates the practical
+    implementation of GitOps principles in a fully local Kubernetes
+    environment. Although the deployment operates locally using Minikube,
+    the same GitOps workflow concepts are widely used in enterprise cloud
+    environments involving large-scale Kubernetes clusters and production
+    applications.
+</p>
+
+<p>
+    Another important capability provided by ArgoCD is automated
+    synchronization and self-healing. If Kubernetes resources are modified
+    manually or become inconsistent, ArgoCD detects these deviations and
+    restores the cluster to the desired state defined in Git. This improves
+    infrastructure reliability and operational consistency.
+</p>
+
+<p>
+    ArgoCD integrates seamlessly with CI/CD pipelines such as GitHub
+    Actions. In this project, GitHub Actions handles application image
+    building and deployment restarts, while ArgoCD manages declarative
+    Kubernetes configuration synchronization. Together, these technologies
+    create a complete modern DevOps and GitOps deployment ecosystem.
+</p>
+
+<p>
+    The ArgoCD dashboard also provides deployment history and rollback
+    capabilities. Previous application versions and synchronization events
+    are tracked automatically, enabling administrators to troubleshoot
+    issues and restore stable configurations when required.
+</p>
+
+<p>
+    ArgoCD supports enterprise-grade deployment practices including
+    multi-cluster management, role-based access control, automated
+    synchronization policies and progressive delivery strategies. This makes
+    ArgoCD one of the most widely adopted GitOps tools in cloud-native
+    Kubernetes environments.
+</p>
+
+<p>
+    Overall, ArgoCD serves as the GitOps delivery engine within this
+    capstone project. It automates Kubernetes synchronization, improves
+    deployment visibility, enforces declarative infrastructure management
+    and demonstrates modern GitOps operational practices that are becoming
+    essential in enterprise DevOps ecosystems.
+</p>
+
+
+</section>
+
+<footer>
+
+    <p>
+        Built using Flask + Docker + GitHub Actions + Kubernetes + ArgoCD
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
