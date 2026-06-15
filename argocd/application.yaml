@@ -2,31 +2,27 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-name: flask-app
-namespace: argocd
+  name: flask-app
+  namespace: argocd
 
 spec:
-project: default
+  project: default
 
-source:
-repoURL: https://github.com/sanjeevtripurari/docker-gitactions.git
+  source:
+    repoURL: https://github.com/sanjeevtripurari/docker-gitactions.git
 
+    targetRevision: HEAD
 
-targetRevision: HEAD
+    path: k8s
 
-path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flask-app
 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 
-destination:
-server: https://kubernetes.default.svc
-namespace: flask-app
-
-syncPolicy:
-automated:
-prune: true
-selfHeal: true
-
-
-syncOptions:
-- CreateNamespace=true
-
+    syncOptions:
+      - CreateNamespace=true
