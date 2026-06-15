@@ -1,45 +1,42 @@
 name: Local Minikube Deployment
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
+  deploy:
 
-deploy:
+    runs-on: self-hosted
 
+    steps:
 
-runs-on: self-hosted
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-steps:
+      - name: Verify Docker
+        run: docker ps
 
-- name: Checkout Repository
-  uses: actions/checkout@v4
+      - name: Verify Kubernetes
+        run: kubectl get nodes
 
-- name: Verify Docker
-  run: docker ps
+      - name: Build Docker Image
+        run: |
+          docker build -t flask-app:latest .
 
-- name: Verify Kubernetes
-  run: kubectl get nodes
+      - name: Load Image into Minikube
+        run: |
+          minikube image load flask-app:latest
 
-- name: Build Docker Image
-  run: |
-    docker build -t flask-app:latest .
+      - name: Apply Kubernetes Manifests
+        run: |
+          kubectl apply -f k8s/
 
-- name: Load Image into Minikube
-  run: |
-    minikube image load flask-app:latest
+      - name: Restart Deployment
+        run: |
+          kubectl rollout restart deployment flask-app -n flask-app
 
-- name: Apply Kubernetes Manifests
-  run: |
-    kubectl apply -f k8s/
-
-- name: Restart Deployment
-  run: |
-    kubectl rollout restart deployment flask-app -n flask-app
-
-- name: Verify Pods
-  run: |
-    kubectl get pods -n flask-app
-
+      - name: Verify Pods
+        run: |
+          kubectl get pods -n flask-app
